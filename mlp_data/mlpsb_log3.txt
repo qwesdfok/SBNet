@@ -1,0 +1,68 @@
+Mon Mar 26 15:08:50 2018
+Saving Best time: 0.807571 acc: 0.15000 loss: 1.07020 t-loss: 1.02558 t-acc: 0.55000 Saved: Epoch 1 batch2 
+Saving Best time: 4.261168 acc: 0.45000 loss: 1.06600 t-loss: 1.02611 t-acc: 0.75000 Saved: Epoch 3 batch0 
+Saving Best time: 4.459670 acc: 0.60000 loss: 1.03019 t-loss: 1.01365 t-acc: 0.75000 Saved: Epoch 4 batch4 
+Saving      time: 4.433502 acc: 0.55000 loss: 1.02690 t-loss: 1.00770 t-acc: 0.85000 Saved: Epoch 6 batch2 
+Saving      time: 2.732681 acc: 0.50000 loss: 1.02186 t-loss: 0.97484 t-acc: 0.90000 Saved: Epoch 8 batch0 
+Saving      time: 2.928071 acc: 0.50000 loss: 1.00589 t-loss: 0.97982 t-acc: 0.75000 Saved: Epoch 9 batch4 
+Saving Best time: 2.959743 acc: 0.65000 loss: 0.98087 t-loss: 0.95929 t-acc: 0.80000 Saved: Epoch 11 batch2 
+Saving Best time: 4.439971 acc: 0.70000 loss: 0.96306 t-loss: 0.96990 t-acc: 0.55000 Saved: Epoch 13 batch0 
+Saving      time: 4.414997 acc: 0.50000 loss: 0.97112 t-loss: 0.93932 t-acc: 0.70000 Saved: Epoch 14 batch4 
+Saving      time: 2.822135 acc: 0.50000 loss: 0.95828 t-loss: 0.90849 t-acc: 0.75000 Saved: Epoch 16 batch2 
+Saving Best time: 2.846505 acc: 0.70000 loss: 0.91557 t-loss: 0.93633 t-acc: 0.55000 Saved: Epoch 18 batch0 
+Saving Best time: 4.524005 acc: 0.75000 loss: 0.90482 t-loss: 0.87110 t-acc: 0.80000 Saved: Epoch 19 batch4 
+Saving      time: 4.404043 acc: 0.60000 loss: 0.92587 t-loss: 0.81304 t-acc: 0.95000 Saved: Epoch 21 batch2 
+Saving Best time: 2.670239 acc: 0.75000 loss: 0.87249 t-loss: 0.83324 t-acc: 0.85000 Saved: Epoch 23 batch0 
+Saving      time: 4.383931 acc: 0.60000 loss: 0.90304 t-loss: 0.84445 t-acc: 0.75000 Saved: Epoch 24 batch4 
+Saving      time: 2.849405 acc: 0.50000 loss: 0.90476 t-loss: 0.78758 t-acc: 0.85000 Saved: Epoch 26 batch2 
+Saving      time: 2.888030 acc: 0.50000 loss: 0.89138 t-loss: 0.73124 t-acc: 0.95000 Saved: Epoch 28 batch0 
+Saving Best time: 2.919946 acc: 0.75000 loss: 0.79747 t-loss: 0.76503 t-acc: 0.80000 Saved: Epoch 29 batch4 
+Saving      time: 4.287235 acc: 0.65000 loss: 0.81277 t-loss: 0.80110 t-acc: 0.70000 Saved: Epoch 31 batch2 
+Saving      time: 2.854732 acc: 0.50000 loss: 0.80167 t-loss: 0.73873 t-acc: 0.65000 Saved: Epoch 33 batch0 
+Saving Best time: 2.815504 acc: 0.75000 loss: 0.69472 t-loss: 0.71016 t-acc: 0.60000 Saved: Epoch 34 batch4 
+Saving      time: 4.390607 acc: 0.50000 loss: 0.75285 t-loss: 0.66012 t-acc: 0.65000 Saved: Epoch 36 batch2 
+Saving      time: 2.817506 acc: 0.60000 loss: 0.70673 t-loss: 0.63132 t-acc: 0.65000 Saved: Epoch 38 batch0 
+Saving      time: 2.818502 acc: 0.50000 loss: 0.70731 t-loss: 0.49172 t-acc: 0.80000 Saved: Epoch 39 batch4 
+Saving Best time: 2.961099 acc: 0.75000 loss: 0.50199 t-loss: 0.54523 t-acc: 0.65000 Saved: Epoch 41 batch2 
+Saving      time: 4.447664 acc: 0.70000 loss: 0.52131 t-loss: 0.46774 t-acc: 0.70000 Saved: Epoch 43 batch0 
+Saving      time: 2.819140 acc: 0.70000 loss: 0.49216 t-loss: 0.35370 t-acc: 0.90000 Saved: Epoch 44 batch4 
+Saving      time: 2.882420 acc: 0.50000 loss: 0.59802 t-loss: 0.22211 t-acc: 0.95000 Saved: Epoch 46 batch2 
+Saving Best time: 2.804429 acc: 0.70000 loss: 0.44565 t-loss: 0.28308 t-acc: 0.95000 Saved: Epoch 48 batch0 
+Saving      time: 4.466094 acc: 0.55000 loss: 0.54850 t-loss: 0.38525 t-acc: 0.85000 Saved: Epoch 49 batch4 
+Saving      time: 2.775114 acc: 0.55000 loss: 0.52822 t-loss: 0.25144 t-acc: 0.80000 Saved: Epoch 51 batch2 
+Saving Best time: 2.885085 acc: 0.70000 loss: 0.41038 t-loss: 0.25162 t-acc: 0.80000 Saved: Epoch 53 batch0 
+Saving Best time: 4.353582 acc: 0.75000 loss: 0.40099 t-loss: 0.31194 t-acc: 0.80000 Saved: Epoch 54 batch4 
+Saving Best time: 4.935472 acc: 0.80000 loss: 0.38217 t-loss: 0.44549 t-acc: 0.85000 Saved: Epoch 56 batch2 
+Saving      time: 4.539387 acc: 0.65000 loss: 0.44739 t-loss: 0.14616 t-acc: 0.95000 Saved: Epoch 58 batch0 
+Saving Best time: 2.836416 acc: 0.90000 loss: 0.35491 t-loss: 0.29608 t-acc: 0.90000 Saved: Epoch 59 batch4 
+Saving      time: 4.357208 acc: 0.80000 loss: 0.36423 t-loss: 0.24507 t-acc: 0.95000 Saved: Epoch 61 batch2 
+Saving      time: 2.802513 acc: 0.55000 loss: 0.48762 t-loss: 0.34741 t-acc: 0.85000 Saved: Epoch 63 batch0 
+Saving      time: 2.793748 acc: 0.75000 loss: 0.38661 t-loss: 0.22111 t-acc: 0.95000 Saved: Epoch 64 batch4 
+Saving Best time: 3.111867 acc: 0.90000 loss: 0.32256 t-loss: 0.36262 t-acc: 0.85000 Saved: Epoch 66 batch2 
+Saving      time: 4.562848 acc: 0.75000 loss: 0.41870 t-loss: 0.20895 t-acc: 1.00000 Saved: Epoch 68 batch0 
+Saving Best time: 2.766464 acc: 0.95000 loss: 0.26936 t-loss: 0.27061 t-acc: 1.00000 Saved: Epoch 69 batch4 
+Saving      time: 4.517807 acc: 0.75000 loss: 0.32629 t-loss: 0.11192 t-acc: 1.00000 Saved: Epoch 71 batch2 
+Saving      time: 2.815509 acc: 0.90000 loss: 0.28957 t-loss: 0.18612 t-acc: 0.95000 Saved: Epoch 73 batch0 
+Saving Best time: 2.830395 acc: 1.00000 loss: 0.30615 t-loss: 0.12750 t-acc: 1.00000 Saved: Epoch 74 batch4 
+Saving      time: 4.381248 acc: 0.90000 loss: 0.30489 t-loss: 0.16257 t-acc: 1.00000 Saved: Epoch 76 batch2 
+Saving      time: 2.758952 acc: 0.85000 loss: 0.32154 t-loss: 0.08341 t-acc: 1.00000 Saved: Epoch 78 batch0 
+Saving Best time: 2.791322 acc: 0.90000 loss: 0.24162 t-loss: 0.13464 t-acc: 1.00000 Saved: Epoch 79 batch4 
+Saving      time: 4.351760 acc: 0.90000 loss: 0.25962 t-loss: 0.10816 t-acc: 1.00000 Saved: Epoch 81 batch2 
+Saving Best time: 2.889822 acc: 0.95000 loss: 0.27327 t-loss: 0.15902 t-acc: 0.95000 Saved: Epoch 83 batch0 
+Saving Best time: 4.412862 acc: 1.00000 loss: 0.28243 t-loss: 0.11789 t-acc: 1.00000 Saved: Epoch 84 batch4 
+Saving Best time: 4.376816 acc: 0.95000 loss: 0.24186 t-loss: 0.25293 t-acc: 0.95000 Saved: Epoch 86 batch2 
+Saving Best time: 4.528237 acc: 0.95000 loss: 0.22748 t-loss: 0.09675 t-acc: 1.00000 Saved: Epoch 88 batch0 
+Saving      time: 4.418196 acc: 0.95000 loss: 0.24059 t-loss: 0.18652 t-acc: 0.90000 Saved: Epoch 89 batch4 
+Saving Best time: 3.044094 acc: 0.95000 loss: 0.21065 t-loss: 0.08512 t-acc: 1.00000 Saved: Epoch 91 batch2 
+Saving Best time: 4.403339 acc: 1.00000 loss: 0.19715 t-loss: 0.15033 t-acc: 0.95000 Saved: Epoch 93 batch0 
+Saving      time: 4.584529 acc: 1.00000 loss: 0.21464 t-loss: 0.12803 t-acc: 1.00000 Saved: Epoch 94 batch4 
+Saving Best time: 2.905343 acc: 1.00000 loss: 0.19158 t-loss: 0.14868 t-acc: 0.95000 Saved: Epoch 96 batch2 
+Saving Best time: 4.437817 acc: 1.00000 loss: 0.15868 t-loss: 0.11668 t-acc: 1.00000 Saved: Epoch 98 batch0 
+Saving      time: 4.513574 acc: 1.00000 loss: 0.17133 t-loss: 0.12496 t-acc: 0.95000 Saved: Epoch 99 batch4 
+Saving      time: 2.856815 acc: 0.95000 loss: 0.16931 t-loss: 0.13784 t-acc: 1.00000 Saved: Epoch 101 batch2 
+Saving      time: 2.862845 acc: 0.95000 loss: 0.19820 t-loss: 0.09235 t-acc: 1.00000 Saved: Epoch 103 batch0 
+Saving      time: 2.754994 acc: 1.00000 loss: 0.17761 t-loss: 0.15123 t-acc: 0.95000 Saved: Epoch 104 batch4 
+Saving Best time: 2.878026 acc: 0.95000 loss: 0.14031 t-loss: 0.15222 t-acc: 0.95000 Saved: Epoch 106 batch2 
+Saving Best time: 4.523395 acc: 1.00000 loss: 0.14600 t-loss: 0.13277 t-acc: 0.95000 Saved: Epoch 108 batch0 
+Saving      time: 4.507318 acc: 1.00000 loss: 0.14705 t-loss: 0.06992 t-acc: 0.95000 Saved: Epoch 109 batch4 
+Saving Best time: 2.823076 acc: 1.00000 loss: 0.12562 t-loss: 0.05840 t-acc: 1.00000 Saved: Epoch 111 batch2 
