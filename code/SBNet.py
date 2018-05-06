@@ -7,6 +7,9 @@ import tarfile
 
 
 class Tracer:
+	'''
+	this class is used to store model variables data and recovery data from storage path.
+	'''
 	def __init__(self, log_root_dir: str, saver_root_dir: str, model_name: str, save_count: int):
 		self.model_name = model_name
 		self.saver_dir = saver_root_dir + self.model_name
@@ -143,6 +146,9 @@ class Tracer:
 
 
 class Utils:
+	'''
+	this class has some utils on reformatting data structure, reading data.
+	'''
 	@staticmethod
 	def label_to_one_hot(labels, hot_size):
 		result = []
@@ -244,6 +250,10 @@ class BaseNet:
 
 	def calculate_loss(self, sess, train_data, train_label, test_data, test_label):
 		if len(self.sb_argv_list) != 0:
+			'''
+			if model uses SBM, it should calculate prediction(distance) firstly.
+			Then, calculate accuracy, loss and prediction of input.
+			'''
 			storage_vector_data = [[]] * len(self.sb_argv_list)
 			for argv_index in range(len(self.sb_argv_list)):
 				input_layer, storage_size = self.sb_argv_list[argv_index]
@@ -259,6 +269,10 @@ class BaseNet:
 						self.input_feature_vector_data_holder[argv_index]: input_feature_vector_data})
 			accuracy, loss, predict = sess.run((self.accuracy, self.loss, self.prediction),
 				feed_dict={self.input: test_data, self.label: test_label})
+			'''
+			the followings is used to calculate accuracy on train data, in order to decide when it 
+			can stop.
+			'''
 			for argv_index in range(len(self.sb_argv_list)):
 				input_layer, storage_size = self.sb_argv_list[argv_index]
 				input_feature_vector_data = sess.run(input_layer,
@@ -270,6 +284,9 @@ class BaseNet:
 			train_loss, train_acc = sess.run((self.loss, self.accuracy),
 				feed_dict={self.input: train_data, self.label: train_label})
 		else:
+			'''
+			if the model does not use SBM.
+			'''
 			accuracy, loss, predict = sess.run((self.accuracy, self.loss, self.prediction),
 				feed_dict={self.input: test_data, self.label: test_label})
 			train_loss, train_acc = sess.run((self.loss, self.accuracy),
@@ -278,10 +295,16 @@ class BaseNet:
 
 	def train(self, sess, train_input, train_label):
 		if len(self.sb_argv_list) != 0:
+			'''
+			if the model uses SBM.
+			'''
 			start_time = time.time()
 			argv_list = self.sb_argv_list
 			self.sb_result = [[]] * self.batch_count
 			for argv_index in range(len(argv_list)):
+				'''
+				for every SBM, start the learning algorithm.
+				'''
 				argv = argv_list[argv_index]
 				input_layer, storage_size = argv[0:2]
 				per_size = (storage_size) * 2
@@ -289,13 +312,25 @@ class BaseNet:
 				storage = self.sb_storage_box[argv_index]
 				storage_data_result = sess.run(input_layer, feed_dict={self.input: np.reshape(storage,
 					[-1, self.input_shape[1], self.input_shape[2], self.input_shape[3]]), self.training: False})
-				# [label_size, per_size, layer.shape[1]*[2]*[3]
+				# [label_size, per_size, layer.shape[1]*[2]*[3]]
 				storage_vector_data = np.reshape(storage_data_result, [self.label_size, per_size, -1])
+				'''
+				storage_vector_data is the processed data whose shape is
+				[label_size, per_size, layer.shape[1]*[2]*[3]]
+				
+				Then, calculate distance between every typical samples.
+				Note: this process is accelerated by tensorflow-gpu using while-loop
+				'''
 				result = sess.run(self.wl_distance[argv_index],
 					feed_dict={self.storage_vector_data_holder[argv_index]: storage_vector_data})
 				# shape: [label,ps,ps]
 				distance = sess.run(self.distance_gpu[argv_index])
 
+				'''
+				Calculate processed input data whose shape is [batch, layer.shape[1]*[2]*[3]],
+				so that we can calculate distance between two vectors by using Norm. And mse is 
+				equals to mse= mean(square(typical_sample - input))
+				'''
 				input_feature_vector_data = sess.run(input_layer,
 					feed_dict={self.input: train_input, self.training: False})
 				input_feature_vector_data = np.reshape(input_feature_vector_data, [len(input_feature_vector_data), -1])
@@ -304,6 +339,11 @@ class BaseNet:
 						self.input_feature_vector_data_holder[argv_index]: input_feature_vector_data,
 						self.storage_vector_data_holder[argv_index]: storage_vector_data})
 				# mse_result = sess.run(self.mse_result_gpu[argv_index])
+				'''
+				Update typical samples, the max-set principle is if the whole distance is larger than
+				before if after one input replaces some typical sample, then update.
+				The update principle of min-set is close to the max-set'.
+				'''
 				for input_index in range(len(input_feature_vector_data)):
 					label = np.argmax(train_label[input_index])
 					# shape [ps]
@@ -343,6 +383,10 @@ class BaseNet:
 							break
 					if sb_init_map[label] != 0:
 						sb_init_map[label] = sb_init_map[label] - 1
+				'''
+				Finally, we can get the prediction based on typical samples.
+				And CNN will use it when in CNN's updating. 
+				'''
 				result = sess.run(self.wl_predict[argv_index],
 					feed_dict={self.storage_vector_data_holder[argv_index]: storage_vector_data,
 						self.input_feature_vector_data_holder[argv_index]: input_feature_vector_data})
@@ -433,6 +477,12 @@ class BaseNet:
 		return full_connection
 
 	def create_storage_box_module_gpu(self, input_layer, storage_size: int):
+		'''
+		To construct SBM using GPU accelerating.
+		:param input_layer: input
+		:param storage_size: how many typical samples should to be stored
+		:return: No return value
+		'''
 		layer_shape = input_layer.get_shape()
 		per_size = storage_size * 2
 		if len(layer_shape) == 2:
@@ -464,6 +514,11 @@ class BaseNet:
 			return per_storage_index_arg < tf.constant(per_size, dtype=tf.int32)
 
 		def calculate_distance_loop(label_index_arg):
+			'''
+			this loop is used to calculate distance between typical samples.
+			:param label_index_arg: index
+			:return:
+			'''
 			def iter_per_storage_loop(per_storage_index_arg):
 				distance_i_j = tf.reduce_sum(
 					tf.square(
@@ -487,6 +542,11 @@ class BaseNet:
 			return input_index_arg < tf.constant(self.batch_count, tf.int32)
 
 		def predict_loop(input_index_arg):
+			'''
+			this loop is used to calculate prediction base on typical samples. And it uses log distance.
+			:param input_index_arg:
+			:return:
+			'''
 			mse = tf.log(
 				tf.reduce_min(
 					tf.reduce_sum(
@@ -505,6 +565,12 @@ class BaseNet:
 			return input_index_arg < tf.constant(self.batch_count, tf.int32)
 
 		def mse_loop(input_index_arg):
+			'''
+			this loop is used to calculate mean square error(not mean sqrt error,
+			because the result of prediction has not big difference.).
+			:param input_index_arg:
+			:return:
+			'''
 			label = tf.cast(tf.argmax(self.label[input_index_arg]), tf.int32)
 			# shape [ps]
 			per_mse = tf.reduce_sum(
